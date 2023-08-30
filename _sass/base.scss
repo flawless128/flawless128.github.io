@@ -1,0 +1,425 @@
+$backgroundColor: hsl(240, 85%, 2%);
+$backgroundAccent: hsl(240, 34%, 12%);;
+$bodyColor: #fff;
+$bodyFont: -apple-system,BlinkMacSystemFont,"Verdana",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+$thumbnailSize: 320px;
+
+:root {
+  font-size: 1em;
+  --thumbnail-small: calc(100% - 32px);
+  --thumbnail-medium: 396px;
+  --thumbnail-large: 500px;
+}
+
+/* Helper utility classes */
+.no-margin {margin: 0;}
+.margin-top-1rem {margin-top:1rem;}
+
+p {
+  color: white;
+  line-height: 1.5em;
+  letter-spacing: 0.02em;
+  margin: 0 auto 1.5em auto;
+}
+
+h1 {
+  color: white;
+  margin: auto;
+  margin: 0 0 1rem;
+}
+
+h1, h2, h3 {
+  font-weight: 400;
+}
+
+h2, h3 {
+  margin: 0 0 1rem;
+}
+
+ul {
+  padding: 0 2rem;
+  margin: .5rem 0 2em;
+}
+
+li {
+  line-height: 1.5em;
+  letter-spacing: 0.02em;
+}
+
+figure {
+  width: 100%;
+  margin: 1em auto;
+}
+
+figcaption {
+  position: relative;
+  top: 0;
+  font-size: .8em;
+  text-align: center;
+  margin: .2em auto;
+}
+
+/*|| Site header */
+header {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.title {
+  font-size: 1.5rem;
+  padding: .2em 0;
+  margin: 0;
+  text-shadow: 0px 0px 4px white;
+}
+
+/* Navigation */
+nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+
+  /* All children */
+  * {
+    white-space: nowrap;
+  }
+  /* Spacer */
+  div {
+    flex: 5;
+    flex-shrink: 2;
+  }
+  /* Navigation anchors */
+  a {
+    background-color: $backgroundAccent;
+    color: rgb(255, 255, 255);
+    font-size: 1.25rem;
+    margin: 2px 0;
+    padding: .4em 0;
+    flex: 2;
+    text-decoration: none;
+    font-weight: 500;
+    text-align: center;
+    text-decoration-line: none;
+    height: 1em;
+  }
+}
+
+.current {
+  color: white;
+  text-shadow: 0 0 4px white;
+}
+
+/* Collapsible item */
+details {
+  background-color: $backgroundAccent;
+  box-sizing: border-box;
+  margin: 0 auto .75rem;
+  overflow: clip;
+}
+
+summary {
+  font-weight: 400;
+  font-size: 1.5rem;
+  padding: .5em 1em;
+  cursor: pointer;
+}
+
+main > details > p {
+  padding: 0 1.5rem;
+}
+
+details > a > img {
+  box-sizing: border-box;
+  margin: .25rem .75rem;
+  width: calc(100% - 1.5rem);
+  object-fit: cover;
+}
+
+details > a > img:last-child {
+  margin-bottom: .5rem;
+}
+
+main > details > p:last-child {
+  padding-bottom: 1.5rem;
+}
+
+.wrapper-page {
+  margin: 33vh 0 0 0;
+  background-color: $backgroundColor;
+}
+
+.wrapper-inner-page {
+  max-width: 1024px;
+  margin: 0 auto;
+  overflow: visible;
+  overflow-anchor: none;
+}
+
+/*|| Main */
+main {
+  margin: 0 .5rem;
+
+  img{
+    width: 100%;
+    margin: auto;
+    object-fit: cover;
+  }
+  
+  p, li >{
+    a:visited{
+      color: #f148ff;
+    }
+
+    a:link{
+      color: #00b7ff;
+    }
+  }
+}
+
+body {
+  background: $backgroundColor;
+  color: $bodyColor;
+  font-family: $bodyFont;
+  margin: 0;
+  padding: 0;
+}
+
+.banner-gradient {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 33vh;
+  background: linear-gradient(hsla(240, 80%, 2%, 0) 25%, $backgroundColor);
+}
+
+.banner-image {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 33vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/*|| Gallery grid (mobile) */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-auto-rows: 66vh;
+  gap: 10px;
+  margin-top: 1.5em;
+  
+
+  /* Manually positioning the grid for the time being */
+  // chat-room app
+  div:nth-child(5) {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+  // capstone project
+  div:nth-child(7) {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+  // lighting engine
+  div:nth-child(6) {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+  }
+  // "Pixelator"
+  div:nth-child(2) {
+    grid-column: 1 / 2;
+    grid-row: 4 / 5;
+  }
+  // "Airwaves"
+  div:nth-child(2) {
+    grid-column: 1 / 2;
+    grid-row: 4 / 5;
+  }
+}
+
+.gallery-item {
+  border-radius: 24px;
+  overflow: clip; 
+  margin: 0 auto;
+  z-index: 2;
+  position: relative;
+  width: 100%;
+
+  a {
+    display: inline;
+  }
+}
+
+.gallery-text {
+  position: absolute;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.75);
+  font-size: 1.25em;
+  padding: .1em .8em;
+  margin: revert;
+  z-index: 1;
+}
+
+.gallery-thumbnail {
+  border-radius: 24px;
+  object-fit: cover;
+  background-color: $backgroundAccent;
+  height: 100%;
+}
+
+footer {
+  width: fit-content;
+  margin: 0 auto 1em auto;
+}
+
+/* Largest screens */
+@media screen and (min-width: 1440px) {
+  .featured-image{
+    height: 595px;
+  }
+}
+
+/*|| Font-size for medium screens and larger */
+@media screen and (min-width: 1080px) {
+  /* Ensure proper page anchoring on asset load-in */
+  .no-min-height {min-height: unset;}
+  .min-height-640px{ min-height: 640px; }
+  .min-height-720px{ min-height: 720px; }
+  .min-height-1024px{ min-height: 1024px; }
+
+  /* Site header (contains nav) */
+  header {
+    flex-direction: row;
+  }
+
+  /* Title header */
+  .title {
+    line-height: 1.5em;
+    flex: 6;
+    padding: 0 .2em 0 0;
+  }
+
+  .wrapper-inner-page {
+    padding: 0;
+  }
+
+  main {
+    margin: 0 auto;
+
+    .less-width {
+      width: 75%;
+    }
+
+    img {
+      min-height: 576px;
+    }
+  }
+
+  .featured-image{
+    height: 75%;
+  }
+
+  .gallery-item {
+    margin: 0;
+  }
+
+  .gallery-text {
+    backdrop-filter: blur(3px);
+  }
+
+  .gallery-thumbnail {
+    scale: 1;
+    transition: scale .3s ease-in-out;
+  }
+
+  .gallery-item:hover > a > img {
+    scale: 1.1;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 320px auto;
+    margin-top: 1.5em;
+  
+    /* Manually positioning the grid for the time being */
+    // chat-room app
+    div:nth-child(5) {
+      grid-column: 1 / 2;
+      grid-row: 3 / 5;
+    }
+    // capstone project
+    div:nth-child(7) {
+      grid-column: 1 / 4;
+      grid-row: 1 / 3;
+    }
+    // lighting engine
+    div:nth-child(6) {
+      grid-column: 2 / 4;
+      grid-row: 3 / 5;
+    }
+    // "Pixelator"
+    div:nth-child(2) {
+      grid-column: 1 / 3;
+      grid-row: 5 / 6;
+    }
+    // "Airwaves"
+    div:nth-child(1) {
+      grid-column: 1 / 4;
+      grid-row: 6 / 8;
+    }
+  }
+
+  nav {
+    flex-direction: row;
+
+    h1 {
+      text-align: center;
+      margin: 0 0 1rem 0;
+    }
+
+    a {
+      font-size: 1.5rem;
+      transition: background-color .125s ease-out, color .125s ease-out;
+      line-height: 1em;
+      margin: 0 2px;
+      flex-shrink: 0;
+      background-color: hsla(240, 38%, 10%, 0);
+      color: rgba(255, 255, 255, 0.5);
+      padding: 0.5em 1em;
+      
+      .current {
+        color: white;
+        text-shadow: 0 0 4px white;
+      }
+
+      &:hover {
+        background-color: hsl(240, 38%, 10%);
+        color: white;
+      }
+    }
+  }
+}
+
+/* Font-size for medium screens */
+// Breakpoint for horizontal nav
+@media screen and (min-width: 576px) {
+  .title {
+    font-size: 2.5em;
+  }
+
+  .gallery-text {
+    font-size: 1.25em;
+  }
+
+  nav {
+      a {
+        font-size: 1.5em;
+      }
+  }
+}

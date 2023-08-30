@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=5.0, width=device-width" />
+    <title>{{ page.title }} - {{ site.title }}</title>
+    <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+    <link rel="shortcut icon" href="{{ "/favicon.ico" | prepend: site.baseurl | prepend: site.url }}" />
+  </head>
+  <body>
+    {% include banner.html %}
+    <div class="wrapper-page">
+      <div class="wrapper-inner-page">
+        <main>
+          {% include header.html %}
+          {% if page.title != "About Me" %}
+          <small>Posted {{ page.date | date: "%-m-%d-%Y" }}</small>
+          {% endif %}
+          {{ content }}
+        </main>
+        {% include footer.html %}
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,5 +1,5 @@
 ---
 layout: default
-title: Portfolio Gallery
-banner: /assets/images/pixelator.png
+title: Welcome
+banner: /assets/images/placeholder.png
 ---

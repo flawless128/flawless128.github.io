@@ -233,6 +233,7 @@ body {
   object-fit: cover;
   background-color: hsl(240, 34%, 12%);
   height: 100%;
+  transform: translateZ(0);
   transition: filter 0.4s ease-in-out;
 }
 

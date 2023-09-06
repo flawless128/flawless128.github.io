@@ -241,6 +241,7 @@ body {
   object-fit: cover;
   background-color: $backgroundAccent;
   height: 100%;
+  transform: translateZ(0);
   transition: filter .4s ease-in-out;
 }
 

@@ -1,9 +1,11 @@
 // Used to calculate from slightly below the scroll positions
 // equal to 1/4 the height of the panel
 const panelOffset =  window.innerHeight *.165;
-// How far away from a scroll position to calculate
-// Set multiplier to 2 to prevent multiple panels from saturating simultaneously
-const panelTestRange = panelOffset * 2.5;
+// Offset distance from the top of the panel position
+// Two different ranges used to help prevent lots of CSS transitions triggering
+// * 4 = height of a single panel
+const fadeEnterRange = panelOffset * 3.75;
+const fadeExitRange = panelOffset * 2.6;
 
 var scrollFromTop, negations;
 
@@ -17,13 +19,13 @@ $( document ).ready(function() {
 
     // When a panel is in view
     $( ".gallery-thumbnail" ).filter(function (){
-      return (Math.abs( ( $(this).offset().top ) - negations) < panelTestRange ) ? true : false;
+      return (Math.abs( ( $(this).offset().top ) - negations) < fadeEnterRange ) ? true : false;
     })
       .css("filter", "saturate(100%)");
 
     // When a panel is out of view
     $( ".gallery-thumbnail" ).filter(function (){
-      return (Math.abs( ( $(this).offset().top ) - negations) >= panelTestRange ) ? true : false;
+      return (Math.abs( ( $(this).offset().top ) - negations) >= fadeExitRange ) ? true : false;
     })
       .css("filter", "saturate(0%)");
   });

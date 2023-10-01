@@ -6,6 +6,9 @@
     <title>{{ page.title }} - {{ site.title }}</title>
     <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
     <link rel="shortcut icon" href="{{ "/favicon.ico" | prepend: site.baseurl | prepend: site.url }}" />
+    <script src="{{ "/assets/javascript/jquery.js" | prepend: site.url }}"></script>
+    <script src="{{ "/assets/javascript/jquery-ui.min.js" | prepend: site.url }}"></script>
+    <script src="{{ "/assets/javascript/script.js" | prepend: site.url }}"></script>
   </head>
   <body>
     {% include banner.html %}

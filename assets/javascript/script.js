@@ -13,6 +13,22 @@ $( document ).ready(function() {
   // Fade panels on scroll and resize
   $( document ).scroll(fadeScroll);
   $( document ).resize(fadeScroll);
+
+  /*
+  $( ".custom" ).hover(function() {
+    $(this).animate({paddingLeft: '+=1.5rem'}, 250, 'swing');
+  }, function() {
+    $(this).animate({paddingLeft: '-=1.5rem'}, 250, 'swing');
+  });
+*/
+
+  $( ".custom1" ).on( "click", function() {
+    $( ".custom1 > .custom1-text" ).toggleClass( "open", 180 );
+  });
+
+  $( ".custom2" ).on( "click", function() {
+    $( ".custom2 > .custom2-text" ).toggleClass( "open", 180 );
+  });
 });
 
 fadeScroll = function() {

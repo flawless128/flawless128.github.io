@@ -31,6 +31,8 @@ $( document ).ready(function() {
 
     // If the image IS NOT being viewed
     if (viewingImage === false) {
+      $(':eq(0)').toggleClass("fixed-scroll");
+      
       // Add markup to contain the loaded image
       $( ".featured-image" ).before( "<div class='ajax-image-container'><img class='ajax-image'></div>" );
       // Fade-in the image
@@ -55,6 +57,7 @@ $( document ).ready(function() {
       viewingImage = true;
     }
     else {
+      $(':eq(0)').toggleClass("fixed-scroll");
       // If the image IS being viewed
       viewingImage = false;
       // Fade-out the image
@@ -82,6 +85,8 @@ loadImage = function(path) {
   // Asynchronously load
   imgElement.on('load', function(){
     image.attr("src", $(this).attr("src"));	
+
+    //$(this)
   });
   // Set the src attribute
   imgElement.attr("src", path);

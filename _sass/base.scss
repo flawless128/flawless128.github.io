@@ -303,8 +303,7 @@ footer {
   //animation: spin 1.4s linear infinite;
 }
 
-html .fixed-scroll{ overflow: hidden; }
-body .fixed-scroll{ overflow: hidden; }
+.fixed-scroll{ overflow: hidden; }
 
 /* Safari */
 @-webkit-keyframes spin {

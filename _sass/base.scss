@@ -288,8 +288,11 @@ footer {
 }
 
 .ajax-image{
+  object-fit: contain;
   z-index: 999999;
-  max-width: 1920px;
+  max-width: min(1920px, calc(100vw - 2em));
+  max-height: min(1080px, calc(100vh - 2em));
+  padding: 1em;
 }
 
 /* Largest screens */

@@ -24,6 +24,9 @@ $( document ).ready(function() {
     $( ".custom2 > .custom2-text" ).toggleClass( "open", 180 );
   });
 
+  // Root of the page
+  const rootElement = $(':eq(0)');
+
   /*----------[ Image Viewer ]----------*/
   $( ".img-full-container" ).on( "click", function() {
     var fadeInTime = 280;
@@ -31,7 +34,8 @@ $( document ).ready(function() {
 
     // If the image IS NOT being viewed
     if (viewingImage === false) {
-      $(':eq(0)').toggleClass("fixed-scroll");
+      // Prevent scrolling by "fixed-scroll" class to root element
+      rootElement.toggleClass("fixed-scroll");
       
       // Add markup to contain the loaded image
       $( ".featured-image" ).before( "<div class='ajax-image-container'><img class='ajax-image'></div>" );
@@ -57,7 +61,8 @@ $( document ).ready(function() {
       viewingImage = true;
     }
     else {
-      $(':eq(0)').toggleClass("fixed-scroll");
+      // Allow scrolling again
+      rootElement.toggleClass("fixed-scroll");
       // If the image IS being viewed
       viewingImage = false;
       // Fade-out the image

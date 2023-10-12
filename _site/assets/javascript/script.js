@@ -31,8 +31,9 @@ $( document ).ready(function() {
 
     // If the image IS NOT being viewed
     if (viewingImage === false) {
-      // Prevent scrolling by "fixed-scroll" class to root element
-      $( "body" ).toggleClass("fixed-scroll");
+      // Prevent scrolling
+      $( "html" ).addClass("fixed-scroll");
+      $( "body" ).addClass("fixed-scroll");
       
       // Add markup to contain the loaded image
       $( ".featured-image" ).before( "<div class='ajax-image-container'><img class='ajax-image'></div>" );
@@ -59,7 +60,8 @@ $( document ).ready(function() {
     }
     else {
       // Allow scrolling again
-      $( "body" ).toggleClass("fixed-scroll");
+      $( "html" ).removeClass("fixed-scroll");
+      $( "body" ).removeClass("fixed-scroll");
       // If the image IS being viewed
       viewingImage = false;
       // Fade-out the image

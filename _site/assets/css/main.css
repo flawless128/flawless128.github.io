@@ -282,9 +282,8 @@ footer {
 .ajax-image {
   object-fit: contain;
   z-index: 999999;
-  max-width: min(1920px, 100vw - 2em);
-  max-height: min(1080px, 100vh - 2em);
-  padding: 1em;
+  max-width: min(1920px, 100vw);
+  max-height: min(1080px, 100vh);
 }
 
 /* Largest screens */

@@ -284,13 +284,13 @@ footer {
   z-index: 999999;
   max-width: min(1920px, 100vw);
   max-height: min(1080px, 100vh);
-  /*
-    border: 16px solid #f3f3f3;
+  /*border: 6px solid #f3f3f3;
     border-radius: 50%;
-    border-top: 16px solid #3498db;
-    width: 120px;
-    height: 120px;
-    -webkit-animation: spin 2s linear infinite; /* Safari */
+    border-top: 6px solid #3498db;
+    width: 24px;
+    height: 24px;
+    -webkit-animation: spin 1s linear infinite; /* Safari *
+    animation: spin 1s linear infinite;/**/
 }
 
 .fixed-scroll {
@@ -364,9 +364,10 @@ footer {
   .gallery-item {
     margin: 0;
   }
+  /*
   .gallery-text {
     backdrop-filter: blur(3px);
-  }
+  }*/
   .gallery-thumbnail {
     scale: 1;
     transition: scale 0.3s ease-in-out;

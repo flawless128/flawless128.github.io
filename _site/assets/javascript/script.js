@@ -11,40 +11,34 @@ var scrollFromTop, negations;
 // Whether an image is fullscreened or not
 var viewingImage = false;
 
-const rootElement = $(document.documentElement);
-
-$(document).ready(function() {
+$( document ).ready(function() {
   // Fade panels on scroll and resize
-  $(document).scroll(fadeScroll);
-  $(document).resize(fadeScroll);
+  $( document ).scroll(fadeScroll);
+  $( document ).resize(fadeScroll);
 
-  $(".custom1").on("click", function() {
+  $( ".custom1" ).on( "click", function() {
     $( ".custom1 > .custom1-text" ).toggleClass( "open", 180 );
   });
 
-  $(".custom2").on("click", function() {
+  $( ".custom2" ).on( "click", function() {
     $( ".custom2 > .custom2-text" ).toggleClass( "open", 180 );
   });
 
   /*----------[ Image Viewer ]----------*/
-  $(".img-full-container").on( "click", function() {
+  $( ".img-full-container" ).on( "click", function() {
     var fadeInTime = 280;
     var fadeOutTime= 240;
 
     // If the image IS NOT being viewed
     if (viewingImage === false) {
-      // Prevent scrolling
-      $(rootElement).addClass("fixed-scroll");
-      $(document.body).addClass("fixed-scroll");
-      
       // Add markup to contain the loaded image
       $( ".featured-image" ).before( "<div class='ajax-image-container'><img class='ajax-image'></div>" );
       // Fade-in the image
-      $(".ajax-image").animate({
+      $( ".ajax-image" ).animate({
         opacity: 1.0
       }, fadeInTime, "swing");
       // Fade-in container's opacity to 0.75
-      $(".ajax-image-container").animate({
+      $( ".ajax-image-container" ).animate({
         opacity: 0.75
       }, fadeInTime, "swing");
 
@@ -53,7 +47,7 @@ $(document).ready(function() {
         the article uses the "pre_" prefix in their filename. This Algorithm finds the current 
         path name, then removes "pre_" from the string to get the path to the higher res version. */
       // get image path
-      var imgElement = $(this).find(".in-article").attr('src');
+      var imgElement = $(this).find( ".in-article" ).attr('src');
       // remove pre_ from string
       var newPath = imgElement.replace('pre_', '');
       //console.log( newPath ); // log generated path string
@@ -61,17 +55,14 @@ $(document).ready(function() {
       viewingImage = true;
     }
     else {
-      // Allow scrolling again
-      $(rootElement).removeClass("fixed-scroll");
-      $(document.body).removeClass("fixed-scroll");
       // If the image IS being viewed
       viewingImage = false;
       // Fade-out the image
-      $(".ajax-image").animate({
+      $( ".ajax-image" ).animate({
         opacity: 0.0
       }, fadeOutTime, "swing");
       // Fade-out opacity, then remove the element
-      $(".ajax-image-container").animate({
+      $( ".ajax-image-container" ).animate({
         opacity: 0.0
       }, fadeOutTime, "swing", function() {
         $(this).remove();
@@ -98,24 +89,21 @@ loadImage = function(path) {
 
 
 fadeScroll = function() {
-  // Image viewing disables scrolling
-  if (viewingImage === false) {
-    // Current scroll position
-    scrollFromTop = $("html").scrollTop();
-    //console.log(scrollFromTop);
+  // Current scroll position
+  scrollFromTop = $( "html" ).scrollTop();
+  //console.log(scrollFromTop);
 
-    negations = scrollFromTop + panelOffset;
+  negations = scrollFromTop + panelOffset;
 
-    // When a panel is in view
-    $( ".gallery-thumbnail" ).filter(function (){
-      return (Math.abs( ( $(this).offset().top ) - negations) < fadeEnterRange ) ? true : false;
-    })
-      .css("filter", "saturate(100%)");
+  // When a panel is in view
+  $( ".gallery-thumbnail" ).filter(function (){
+    return (Math.abs( ( $(this).offset().top ) - negations) < fadeEnterRange ) ? true : false;
+  })
+    .css("filter", "saturate(100%)");
 
-    // When a panel is out of view
-    $( ".gallery-thumbnail" ).filter(function (){
-      return (Math.abs( ( $(this).offset().top ) - negations) >= fadeExitRange ) ? true : false;
-    })
-      .css("filter", "saturate(0%)");
-  }
+  // When a panel is out of view
+  $( ".gallery-thumbnail" ).filter(function (){
+    return (Math.abs( ( $(this).offset().top ) - negations) >= fadeExitRange ) ? true : false;
+  })
+    .css("filter", "saturate(0%)");
 }

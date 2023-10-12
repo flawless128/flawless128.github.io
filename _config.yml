@@ -1,4 +1,4 @@
 domain: flawless128.github.io
 url: https://flawless128.github.io/ # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: "" # the subpath of your site, e.g. /blog
-title: "Placeholder" # the name of your site, e.g. ACME Corp.
+title: "flawless128's site" # the name of your site, e.g. ACME Corp.

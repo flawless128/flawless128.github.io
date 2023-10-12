@@ -11,10 +11,12 @@ var scrollFromTop, negations;
 // Whether an image is fullscreened or not
 var viewingImage = false;
 
-$( document ).ready(function() {
+const rootElement = $(document.documentElement);
+
+$(document).ready(function() {
   // Fade panels on scroll and resize
-  $( document ).scroll(fadeScroll);
-  $( document ).resize(fadeScroll);
+  $(document).scroll(fadeScroll);
+  $(document).resize(fadeScroll);
 
   $(".custom1").on("click", function() {
     $( ".custom1 > .custom1-text" ).toggleClass( "open", 180 );
@@ -32,8 +34,8 @@ $( document ).ready(function() {
     // If the image IS NOT being viewed
     if (viewingImage === false) {
       // Prevent scrolling
-      $("html").addClass("fixed-scroll");
-      $("body").addClass("fixed-scroll");
+      $(rootElement).addClass("fixed-scroll");
+      $(document.body).addClass("fixed-scroll");
       
       // Add markup to contain the loaded image
       $( ".featured-image" ).before( "<div class='ajax-image-container'><img class='ajax-image'></div>" );
@@ -60,8 +62,8 @@ $( document ).ready(function() {
     }
     else {
       // Allow scrolling again
-      $("html").removeClass("fixed-scroll");
-      $("body").removeClass("fixed-scroll");
+      $(rootElement).removeClass("fixed-scroll");
+      $(document.body).removeClass("fixed-scroll");
       // If the image IS being viewed
       viewingImage = false;
       // Fade-out the image

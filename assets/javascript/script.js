@@ -12,10 +12,6 @@ var scrollFromTop, negations;
 var viewingImage = false;
 
 $( document ).ready(function() {
-  // Fade panels on scroll and resize
-  $( document ).scroll(fadeScroll);
-  $( document ).resize(fadeScroll);
-
   $( ".custom1" ).on( "click", function() {
     $( ".custom1 > .custom1-text" ).toggleClass( "open", 180 );
   });
@@ -69,8 +65,13 @@ $( document ).ready(function() {
       });
     }
   });
-});
 
+  // Scroll to top
+  $("#scrollTop").on( "click", function() {
+    // Scroll to the top of the page in 1000ms
+    $("html, body").animate({scrollTop: 0}, 1000);
+  });
+});
 
 /** Load an image asynchronously with jQuery's '.load'
  *  Arguments: [path] - relative file location
@@ -85,25 +86,4 @@ loadImage = function(path) {
   });
   // Set the src attribute
   imgElement.attr("src", path);
-}
-
-
-fadeScroll = function() {
-  // Current scroll position
-  scrollFromTop = $( "html" ).scrollTop();
-  //console.log(scrollFromTop);
-
-  negations = scrollFromTop + panelOffset;
-
-  // When a panel is in view
-  $( ".gallery-thumbnail" ).filter(function (){
-    return (Math.abs( ( $(this).offset().top ) - negations) < fadeEnterRange ) ? true : false;
-  })
-    .css("filter", "saturate(100%)");
-
-  // When a panel is out of view
-  $( ".gallery-thumbnail" ).filter(function (){
-    return (Math.abs( ( $(this).offset().top ) - negations) >= fadeExitRange ) ? true : false;
-  })
-    .css("filter", "saturate(0%)");
 }

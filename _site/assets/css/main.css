@@ -15,17 +15,19 @@
 }
 
 p {
-  color: white;
+  color: #000000;
   line-height: 1.5em;
   letter-spacing: 0.02em;
   margin: 0 auto 1.5em auto;
 }
 
 h1 {
-  color: white;
+  color: #000000;
   margin: auto;
   margin: 0 0 1rem;
-  text-shadow: 0px 0px 0px white;
+  text-shadow: 0px 1px 1px 8px rgb(0, 0, 0);
+  text-rendering: optimizeLegibility;
+  font-kerning: none;
 }
 
 h1, h2, h3 {
@@ -70,7 +72,7 @@ header {
   font-size: 1.5rem;
   padding: 0.2em 0;
   margin: 0;
-  text-shadow: 0px 0px 4px white;
+  text-shadow: 0px 2px 4px #000000;
 }
 
 /* Navigation */
@@ -92,7 +94,7 @@ nav div {
   flex-shrink: 2;
 }
 nav a {
-  background-color: hsl(240, 34%, 12%);
+  background-color: hsl(240, 3%, 35%);
   color: rgb(255, 255, 255);
   font-size: 1.25rem;
   margin: 2px 0;
@@ -105,14 +107,9 @@ nav a {
   height: 1em;
 }
 
-.current {
-  color: white;
-  text-shadow: 0 0 4px white;
-}
-
 /* Collapsible item */
 details {
-  background-color: hsl(240, 34%, 12%);
+  background-color: hsl(240, 3%, 35%);
   box-sizing: border-box;
   margin: 0 auto 0.75rem;
   overflow: clip;
@@ -146,7 +143,7 @@ main > details > p:last-child {
 
 .wrapper-page {
   margin: 33vh 0 0 0;
-  background-color: hsl(240, 85%, 2%);
+  background-color: hsl(0, 0%, 100%);
 }
 
 .wrapper-inner-page {
@@ -173,8 +170,8 @@ main p a:link, main li > a:link {
 }
 
 body {
-  background: hsl(240, 85%, 2%);
-  color: #fff;
+  background: hsl(0, 0%, 100%);
+  color: #000000;
   font-family: -apple-system, BlinkMacSystemFont, "Verdana", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   margin: 0;
   padding: 0;
@@ -186,7 +183,7 @@ body {
   top: 0;
   width: 100%;
   height: 33vh;
-  background: linear-gradient(hsla(240, 80%, 2%, 0) 25%, hsl(240, 85%, 2%));
+  background: linear-gradient(hsla(240, 80%, 2%, 0) 25%, hsl(0, 0%, 100%));
 }
 
 .banner-image {
@@ -237,7 +234,7 @@ body {
   transform: translate3d(0, 0, 0);
   border-radius: 24px;
   object-fit: cover;
-  background-color: hsl(240, 34%, 12%);
+  background-color: hsl(240, 3%, 35%);
   height: 100%;
   transition: filter 0.33s;
 }
@@ -245,6 +242,15 @@ body {
 footer {
   width: fit-content;
   margin: 0 auto 1em auto;
+  text-align: center;
+}
+
+#scrollTop {
+  text-decoration: underline;
+}
+
+#scrollTop:hover {
+  cursor: pointer;
 }
 
 .collapsible-text {
@@ -284,36 +290,12 @@ footer {
   z-index: 999999;
   max-width: min(1920px, 100vw);
   max-height: min(1080px, 100vh);
-  /*border: 6px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 6px solid #3498db;
-    width: 24px;
-    height: 24px;
-    -webkit-animation: spin 1s linear infinite; /* Safari *
-    animation: spin 1s linear infinite;/**/
 }
 
 .fixed-scroll {
   overflow: hidden;
 }
 
-/* Safari */
-@-webkit-keyframes spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-  }
-}
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
 /* Largest screens */
 @media screen and (min-width: 1440px) {
   .featured-image {
@@ -419,10 +401,6 @@ footer {
     background-color: hsla(240, 38%, 10%, 0);
     color: rgba(255, 255, 255, 0.5);
     padding: 0.5em 1em;
-  }
-  nav a .current {
-    color: white;
-    text-shadow: 0 0 4px white;
   }
   nav a:hover {
     background-color: hsl(240, 38%, 10%);

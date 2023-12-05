@@ -1,6 +1,6 @@
-$backgroundColor: hsl(240, 85%, 2%);
-$backgroundAccent: hsl(240, 34%, 12%);;
-$bodyColor: #fff;
+$backgroundColor: hsl(0, 0%, 100%);
+$backgroundAccent: hsl(240, 3%, 35%);
+$textColor: #000000;
 $bodyFont: -apple-system,BlinkMacSystemFont,"Verdana",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 $thumbnailSize: 320px;
 
@@ -16,17 +16,19 @@ $thumbnailSize: 320px;
 .margin-top-1rem {margin-top:1rem;}
 
 p {
-  color: white;
+  color: $textColor;
   line-height: 1.5em;
   letter-spacing: 0.02em;
   margin: 0 auto 1.5em auto;
 }
 
 h1 {
-  color: white;
+  color: $textColor;
   margin: auto;
   margin: 0 0 1rem;
-  text-shadow: 0px 0px 0px white;
+  text-shadow: 0px 1px 1px 8px rgb(0, 0, 0);
+  text-rendering: optimizeLegibility;
+  font-kerning: none;
 }
 
 h1, h2, h3 {
@@ -71,7 +73,7 @@ header {
   font-size: 1.5rem;
   padding: .2em 0;
   margin: 0;
-  text-shadow: 0px 0px 4px white;
+  text-shadow: 0px 2px 4px $textColor;
 }
 
 /* Navigation */
@@ -105,11 +107,6 @@ nav {
     text-decoration-line: none;
     height: 1em;
   }
-}
-
-.current {
-  color: white;
-  text-shadow: 0 0 4px white;
 }
 
 /* Collapsible item */
@@ -181,7 +178,7 @@ main {
 
 body {
   background: $backgroundColor;
-  color: $bodyColor;
+  color: $textColor;
   font-family: $bodyFont;
   margin: 0;
   padding: 0;
@@ -253,6 +250,15 @@ body {
 footer {
   width: fit-content;
   margin: 0 auto 1em auto;
+  text-align: center;
+}
+
+#scrollTop {
+  text-decoration: underline;
+}
+
+#scrollTop:hover {
+  cursor: pointer;
 }
 
 .collapsible-text {
@@ -292,27 +298,9 @@ footer {
   z-index: 999999;
   max-width: min(1920px, 100vw);
   max-height: min(1080px, 100vh);
-/*border: 6px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 6px solid #3498db;
-  width: 24px;
-  height: 24px;
-  -webkit-animation: spin 1s linear infinite; /* Safari *
-  animation: spin 1s linear infinite;/**/
 }
 
 .fixed-scroll{ overflow: hidden; }
-
-/* Safari */
-@-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
 
 /* Largest screens */
 @media screen and (min-width: 1440px) {
@@ -432,12 +420,7 @@ footer {
       background-color: hsla(240, 38%, 10%, 0);
       color: rgba(255, 255, 255, 0.5);
       padding: 0.5em 1em;
-      
-      .current {
-        color: white;
-        text-shadow: 0 0 4px white;
-      }
-
+    
       &:hover {
         background-color: hsl(240, 38%, 10%);
         color: white;

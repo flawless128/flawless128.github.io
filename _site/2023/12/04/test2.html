@@ -11,70 +11,26 @@
     <script src="http://localhost:4000/assets/javascript/script.js"></script>
   </head>
   <body>
-    <img class="banner-image" src="/assets/images/pixelator.png" alt="" loading="lazy">
-<div class="banner-gradient"></div>
     <div class="wrapper-page">
       <div class="wrapper-inner-page">
-        <main>
-          <header>
-  <h1 class="title">2D Lighting Engine</h1>
-  <nav>
+          <nav>
+    <div>
     
       <a href="/" >Home</a>
     
       <a href="/about.html" >About Me</a>
     
+    </div>
+    <div id="dark-mode-container">
+      <h3 id="toggle-darkmode" class="button">Dark Mode</h3>
+    </div>
   </nav>
+  <br>
 </header>
-          
+        <main>
+          <h1 class="title">2D Lighting Engine</h1>
           <small>Posted 12-04-2023</small>
-          
           <div class="img-full-container">
-  <figure class="featured-image">
-    <div class="img-article">
-      <img class="in-article" src="/assets/images/pre_lights1.webp" alt="Screenshot of Ultra Lights 2D" decode="sync" />
-    </div>
-    <figcaption>Screenshot of 
-      <em>Ultra Lights 2D</em>
-    </figcaption>
-  </figure>
-</div>
-
-<h1 id="placeholder">Placeholder</h1>
-
-<p>Sed non metus ligula. Curabitur iaculis at enim nec lobortis. Nulla sagittis erat quis est auctor imperdiet. Nam lobortis facilisis ligula id eleifend. Pellentesque feugiat fermentum mauris at pharetra. Donec purus nunc, accumsan nec viverra eu, volutpat in libero. In pulvinar massa vel rhoncus aliquam. In felis ex, finibus ut vulputate ut, rutrum vitae massa. Aenean maximus lorem a libero commodo, vitae egestas ipsum blandit. Etiam vel augue justo. Morbi lacinia sem non eros fringilla commodo. Donec porttitor ut mauris ac luctus. Sed volutpat pellentesque lectus non aliquet. Aliquam sit amet leo enim. Suspendisse dui turpis, tristique non euismod ac, condimentum id odio.</p>
-
-<div class="img-full-container">
-  <figure class="featured-image">
-    <div class="img-article">
-      <img class="in-article" src="/assets/images/pre_lights2.webp" alt="Screenshot of Ultra Lights 2D" decode="sync" />
-    </div>
-    <figcaption>Screenshot of 
-      <em>Ultra Lights 2D</em>
-    </figcaption>
-  </figure>
-</div>
-
-<h1 id="placeholder-1">Placeholder</h1>
-
-<p>Sed non metus ligula. Curabitur iaculis at enim nec lobortis. Nulla sagittis erat quis est auctor imperdiet. Nam lobortis facilisis ligula id eleifend. Pellentesque feugiat fermentum mauris at pharetra. Donec purus nunc, accumsan nec viverra eu, volutpat in libero. In pulvinar massa vel rhoncus aliquam. In felis ex, finibus ut vulputate ut, rutrum vitae massa. Aenean maximus lorem a libero commodo, vitae egestas ipsum blandit. Etiam vel augue justo. Morbi lacinia sem non eros fringilla commodo. Donec porttitor ut mauris ac luctus. Sed volutpat pellentesque lectus non aliquet. Aliquam sit amet leo enim. Suspendisse dui turpis, tristique non euismod ac, condimentum id odio.</p>
-
-<div class="img-full-container">
-  <figure class="featured-image">
-    <div class="img-article">
-      <img class="in-article" src="/assets/images/pre_lights3.webp" alt="Screenshot of Ultra Lights 2D" decode="sync" />
-    </div>
-    <figcaption>Screenshot of 
-      <em>Ultra Lights 2D</em>
-    </figcaption>
-  </figure>
-</div>
-
-<h1 id="placeholder-2">Placeholder</h1>
-
-<p>Sed non metus ligula. Curabitur iaculis at enim nec lobortis. Nulla sagittis erat quis est auctor imperdiet. Nam lobortis facilisis ligula id eleifend. Pellentesque feugiat fermentum mauris at pharetra. Donec purus nunc, accumsan nec viverra eu, volutpat in libero. In pulvinar massa vel rhoncus aliquam. In felis ex, finibus ut vulputate ut, rutrum vitae massa. Aenean maximus lorem a libero commodo, vitae egestas ipsum blandit. Etiam vel augue justo. Morbi lacinia sem non eros fringilla commodo. Donec porttitor ut mauris ac luctus. Sed volutpat pellentesque lectus non aliquet. Aliquam sit amet leo enim. Suspendisse dui turpis, tristique non euismod ac, condimentum id odio.</p>
-
-<div class="img-full-container">
   <figure class="featured-image">
     <div class="img-article">
       <img class="in-article" src="/assets/images/pre_lights4.webp" alt="Screenshot of Ultra Lights 2D" decode="sync" />
@@ -85,13 +41,133 @@
   </figure>
 </div>
 
-<h1 id="placeholder-3">Placeholder</h1>
+<h1 tabindex="0">Overview</h1>
 
-<p>Sed non metus ligula. Curabitur iaculis at enim nec lobortis. Nulla sagittis erat quis est auctor imperdiet. Nam lobortis facilisis ligula id eleifend. Pellentesque feugiat fermentum mauris at pharetra. Donec purus nunc, accumsan nec viverra eu, volutpat in libero. In pulvinar massa vel rhoncus aliquam. In felis ex, finibus ut vulputate ut, rutrum vitae massa. Aenean maximus lorem a libero commodo, vitae egestas ipsum blandit. Etiam vel augue justo. Morbi lacinia sem non eros fringilla commodo. Donec porttitor ut mauris ac luctus. Sed volutpat pellentesque lectus non aliquet. Aliquam sit amet leo enim. Suspendisse dui turpis, tristique non euismod ac, condimentum id odio.</p>
+<p><em>Ultra Lights 2D</em> is an advanced real-time 2D lighting engine I built for GameMaker based off a system called <a href="https://slembcke.github.io/SuperFastSoftShadows">Super Fast Soft Shadows</a>. It’s easily one of my proudest achievements in software, and was the project that taught me how to program shaders.</p>
+
+<p>I won’t go into too in-depth on integration details in this article, but will provide some insight into the unique aspects of my system and development process.</p>
+
+<h2 tabindex="0" class="no-margin">Features:</h2>
+<ul>
+  <li>Full shadow rendering that includes umbra, penumbra, and antumbra</li>
+  <li>Provides area lights/shadows for circular light sources</li>
+  <li>High dynamic range colors and shadows (16 or 32-bit RGBA)</li>
+  <li>Animated blue noise dithering for smoother shadow gradients</li>
+  <li>It’s highly optimized. It can run at thousands of frames per second on PCs with dedicated GPUs.</li>
+  <li>Most features are possible to integrate into WebGL for use in browsers</li>
+</ul>
+
+<div class="custom1">
+    <h1>Backstory</h1>
+    <p class="custom1-text collapsible">
+      In 2016, I came across this <a href="https://www.youtube.com/watch?v=AslPHY2Bomc" target="_blank">2D lighting demo</a> by a YouTuber named Slembcke. I always enjoy seeing what independent developers built, but this one was especially fascinating to me. It seemed to actually simulate area lighting to some degree without major performance costs. At the time, path/ray-tracing and radiosity were the only systems that I knew of which achieved this effect, but only with major drawbacks. Since there was nothing else quite like it, I often wondered how it worked, and if I could ever create something like it. At the time I barely even knew what shaders were.
+    </p>
+    <p class="custom1-text collapsible">
+      Fast forward to 2022 and I was interested in lighting systems again. While browsing for images of shadow antumbras for research, an image from <a href="https://slembcke.github.io/SuperFastSoftShadows">this post</a> popped up. I was astonished and ecstatic. It had only been about 6 months since he posted it. The post itself goes in depth on how the shadow system actually works, what the theory is, and also provides a WebGL example for people to try out. Finally, I had plenty of information to build and understand the system.
+    </p>
+</div>
+
+<div class="custom2">
+  <h1>Gallery</h1>
+  <div class="custom2-text collapsible">
+    <div class="img-full-container">
+      <figure class="featured-image">
+        <div class="img-article">
+          <img class="in-article post-gallery" src="/assets/images/pre_lights1.webp" target="_blank" alt="Screenshot of Ultra Lights 2D" loading="lazy" />
+        </div>
+      </figure>
+    </div>
+    <div class="img-full-container">
+      <figure class="featured-image">
+        <div class="img-article">
+          <img class="in-article post-gallery" src="/assets/images/pre_lights3.webp" target="_blank" alt="Screenshot of Ultra Lights 2D" loading="lazy" />
+        </div>
+      </figure>
+    </div>
+    <div class="img-full-container">
+      <figure class="featured-image">
+        <div class="img-article">
+          <img class="in-article post-gallery" src="/assets/images/pre_lights2.webp" target="_blank" alt="Screenshot of Ultra Lights 2D" loading="lazy" />
+        </div>
+      </figure>
+    </div>
+  </div>
+</div>
+
+<h1 tabindex="0">What do shadows <em>really</em> look like anyway?</h1>
+
+<div class="img-full-container">
+  <figure class="featured-image">
+    <div class="img-article">
+      <img class="in-article" src="/assets/images/antumbra.webp" alt="Rendering of shadows with antumbra" />
+    </div>
+    <figcaption>
+      Orthographic path-traced render of shadows with antumbra
+    </figcaption>
+  </figure>
+</div>
+
+<p><a href="https://en.wikipedia.org/wiki/Umbra,_penumbra_and_antumbra">Antumbras</a> are typically not seen in real-time graphics, and it’s not something I usually think about in the real world either. It occurs when light from a single source goes <em>around</em> all sides of an object. If you’ve ever seen a total solar eclipse in person, then you know what it’s like to be in the antumbra of the Moon. So shadows get darker as the light becomes blocked, a region called <em>penumbra.</em> If the entire object is encompassed by the same light source, it will produce <em>antumbra</em>, a region where the shadow gets brighter.</p>
+
+<p>In order to get a good idea of what the phenomenon should look like, I did a few high fidelity path-traced renders in Blender. Only direct illumination is simulated, meaning there is no light bouncing off of surfaces. A simple diffuse surface is used in the background and the light source is kept as short as possible while still producing enough rays to fill the scene. It’s rendered from an orthographic perspective as well. I did a few different variations to get a sense for how different kinds of geometry should cast shadows from large light sources.</p>
+
+<div class="img-full-container">
+  <figure class="featured-image">
+    <div class="img-article">
+      <img class="in-article" src="/assets/images/pre_antumbra2.webp" alt="Rendering of a 2D scene of shapes casting antumbras" />
+    </div>
+    <figcaption>
+      Path-traced render of multiple types of shapes casting antumbras
+    </figcaption>
+  </figure>
+</div>
+
+<h1 tabindex="0">Shadow Geometry</h1>
+
+<div class="img-full-container">
+  <figure class="featured-image">
+    <div class="img-article">
+      <img class="in-article" src="/assets/images/lightmesh.webp" alt="Shadow geometry screenshot" />
+    </div>
+    <figcaption>
+      Shadow geometry produced from an unseen light source placed in the center of the screen
+    </figcaption>
+  </figure>
+</div>
+
+<p>At run-time, a configurable grid of polygons is generated via <a href="https://en.wikipedia.org/wiki/Gift_wrapping_algorithm">the gift wrapping algorithm</a> for the world’s geometry. Any polygonal shape can be used for the lighting, but this only produces convex polygons due to a limitation of the physics engine. To project shadows, an index of the vertices of this static geometry is kept in memory.</p>
+
+<p>Once rendering starts, a vertex shader then projects new points from this, extruding them away from a light source out to infinity via homogenous coordinates. A single quad is used for each side of a polygon. The extruded end points of this quad are used to to test how “visible” they are from a particular light source. The pixel shader can then do a straight-forward interpolation between the points, producing a shadow gradient. Unfortunately, this also means there’s a good amount of overdraw as polygons often end up covering one another, but most modern GPUs can power through this.</p>
+
+<h1 tabindex="0">Dithering</h1>
+
+<div class="img-full-container">
+  <figure class="featured-image">
+    <div class="img-article">
+      <img class="in-article" src="/assets/images/pre_dither.webp" alt="Infographic that demonstrates color banding and dithering" />
+    </div>
+    <figcaption>
+      This image exaggerates how dithering can resolve color banding
+    </figcaption>
+  </figure>
+</div>
+
+<p>For most of the development cycle, shadows could only be rendered in 8-bit channels (0-255). This creates a perceived lack of detail dubbed “color banding”, which is common in lighting systems. Thankfully, blue noise is a great solution to this issue. The image above shows the effect it can have on an obsolete version of the engine. Much later on this was further alleviated with the introduction of HDR colors and shadowmaps.</p>
+
+<h1 tabindex="0">Future Plans</h1>
+
+<p class="no-margin">I want to continue refining this system for use in future projects. Here are some of the features I plan to implement:</p>
+<ul>
+  <li>Multiple quality modes</li>
+  <li>Convex polygonal light sources</li>
+  <li>Tone mapping/automatic exposure (currently experimental)</li>
+  <li>Shadow geometry culling</li>
+  <li>Moving occluders</li>
+</ul>
 
         </main>
         <footer>
-  <p id="scrollTop">Back to top</p>
+  <p id="scrollTop" class="button">Back to top</p>
   <small>© 2023 Garrett Haynes</small>
 </footer>
       </div>

@@ -1,15 +1,7 @@
-// Used to calculate from slightly below the scroll positions
-// equal to 1/4 the height of the panel (.66vh * .25 = .165vh)
-const panelOffset =  window.innerHeight *.165;
-// Offset distance from the top of the panel position
-// Two different ranges used to help prevent lots of CSS transitions triggering at once
-// * 4 = height of a single panel
-const fadeEnterRange = panelOffset * 3.75;
-const fadeExitRange = panelOffset * 2.6;
-
 var scrollFromTop, negations;
 // Whether an image is fullscreened or not
 var viewingImage = false;
+var darkMode = false;
 
 $( document ).ready(function() {
   $( ".custom1" ).on( "click", function() {
@@ -68,8 +60,13 @@ $( document ).ready(function() {
 
   // Scroll to top
   $("#scrollTop").on( "click", function() {
-    // Scroll to the top of the page in 1000ms
-    $("html, body").animate({scrollTop: 0}, 1000);
+    // Scroll to the top of the page
+    $("html, body").animate({ scrollTop: "0" });
+  });
+
+  $('#toggle-darkmode').on( "click", function(e) {
+    toggleDarkmode();
+    e.preventDefault();
   });
 });
 
@@ -86,4 +83,15 @@ loadImage = function(path) {
   });
   // Set the src attribute
   imgElement.attr("src", path);
+}
+
+toggleDarkmode = function() {
+  $('body').toggleClass("dark-mode-background");
+  $('p').toggleClass("dark-mode");
+  $('title').toggleClass("dark-mode");
+  $('h1').toggleClass("dark-mode");
+  $('figcaption').toggleClass("dark-mode");
+  $('footer').toggleClass("dark-mode");
+  $('small').toggleClass("dark-mode");
+  $('body > .wrapper-page').toggleClass("dark-mode");
 }

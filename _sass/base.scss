@@ -1,38 +1,32 @@
-$backgroundColor: hsl(0, 0%, 100%);
-$backgroundAccent: hsl(240, 3%, 35%);
-$textColor: #000000;
-$bodyFont: -apple-system,BlinkMacSystemFont,"Verdana",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-$thumbnailSize: 320px;
+$font: -apple-system,BlinkMacSystemFont,"Verdana",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 
 :root {
-  font-size: 1em;
-  --thumbnail-small: calc(100% - 32px);
-  --thumbnail-medium: 396px;
-  --thumbnail-large: 500px;
+  --text-color: #000000;
 }
 
-/* Helper utility classes */
-.no-margin {margin: 0;}
-.margin-top-1rem {margin-top:1rem;}
+html {
+  scroll-behavior: smooth;
+}
 
 p {
-  color: $textColor;
+  color: var(--text-color);
   line-height: 1.5em;
-  letter-spacing: 0.02em;
   margin: 0 auto 1.5em auto;
+  transition: color .2s ease-in-out;
 }
 
 h1 {
-  color: $textColor;
+  color: var(--text-color);
   margin: auto;
   margin: 0 0 1rem;
-  text-shadow: 0px 1px 1px 8px rgb(0, 0, 0);
+  text-shadow: 0px 0px 4px 12px rgb(151, 151, 151);
   text-rendering: optimizeLegibility;
   font-kerning: none;
+  transition: color .2s ease-in-out;
 }
 
 h1, h2, h3 {
-  font-weight: 400;
+  font-weight: 500;
 }
 
 h2, h3 {
@@ -51,7 +45,7 @@ li {
 
 figure {
   width: 100%;
-  margin: 1em auto;
+  margin: 1rem auto;
 }
 
 figcaption {
@@ -60,9 +54,13 @@ figcaption {
   font-size: .8em;
   text-align: center;
   margin: .2em auto;
+  transition: color .2s ease-in-out;
 }
 
-/*|| Site header */
+figcaption > * {
+  transition: color .2s ease-in-out;
+}
+
 header {
   display: flex;
   flex-direction: column-reverse;
@@ -73,16 +71,22 @@ header {
   font-size: 1.5rem;
   padding: .2em 0;
   margin: 0;
-  text-shadow: 0px 2px 4px $textColor;
+  transition: color .2s ease-in-out;
 }
 
-/* Navigation */
 nav {
+  z-index: 99999;
   flex: 1;
   display: flex;
   flex-direction: column;
-  text-align: center;
+  text-align: left;
   justify-content: center;
+  color: white;
+  background-color: #253a62;
+  padding-top: 1rem;
+  position: fixed;
+  width: 100%;
+  box-shadow: 0px 0px 8px black;
 
   /* All children */
   * {
@@ -95,8 +99,7 @@ nav {
   }
   /* Navigation anchors */
   a {
-    background-color: $backgroundAccent;
-    color: rgb(255, 255, 255);
+    color: white;
     font-size: 1.25rem;
     margin: 2px 0;
     padding: .4em 0;
@@ -107,11 +110,14 @@ nav {
     text-decoration-line: none;
     height: 1em;
   }
+
+  a:hover{
+    color: white;
+  }
 }
 
 /* Collapsible item */
 details {
-  background-color: $backgroundAccent;
   box-sizing: border-box;
   margin: 0 auto .75rem;
   overflow: clip;
@@ -122,6 +128,23 @@ summary {
   font-size: 1.5rem;
   padding: .5em 1em;
   cursor: pointer;
+}
+
+.dark-mode-background {
+  color: white;
+  background-color: #0f0f0f;
+}
+
+.dark-mode {
+  color: white;
+}
+
+#dark-mode-container {
+  flex: 0.5;
+}
+
+small {
+  transition: color .2s ease-in-out;
 }
 
 main > details > p {
@@ -144,12 +167,49 @@ main > details > p:last-child {
 }
 
 .wrapper-page {
-  margin: 33vh 0 0 0;
-  background-color: $backgroundColor;
+  margin: 0;
+}
+
+.button {
+  background-color: #2c6ef2;
+  width: fit-content;
+  border-radius: 5px;
+  padding: 4px 8px;
+  color: white;
+}
+
+.button:hover {
+  background-color: #4e81e6;
+  cursor: pointer;
+}
+
+.collapsible {
+  overflow: clip;
+}
+
+.custom1:hover {
+  cursor: pointer;
+}
+
+.custom2:hover {
+  cursor: pointer;
+}
+
+
+.custom1-text {
+  height: 0;
+  padding-bottom: 0;
+}
+
+.custom2-text {
+  height: 0;
+}
+
+.open{
+  height: auto;
 }
 
 .wrapper-inner-page {
-  max-width: 1024px;
   margin: 0 auto;
   overflow: visible;
   overflow-anchor: none;
@@ -157,7 +217,9 @@ main > details > p:last-child {
 
 /*|| Main */
 main {
+  max-width: 1068px;
   margin: 0 .5rem;
+  padding-top: 3.5rem;
 
   img{
     width: 100%;
@@ -177,88 +239,22 @@ main {
 }
 
 body {
-  background: $backgroundColor;
-  color: $textColor;
-  font-family: $bodyFont;
-  margin: 0;
+  margin: auto;
   padding: 0;
-}
-
-.banner-gradient {
-  position: absolute;
-  left: 0;
-  top: 0;
   width: 100%;
-  height: 33vh;
-  background: linear-gradient(hsla(240, 80%, 2%, 0) 25%, $backgroundColor);
-}
-
-.banner-image {
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  width: 100%;
-  height: 33vh;
-  object-fit: cover;
-  z-index: -1;
-}
-
-/*|| Gallery grid (mobile) */
-.gallery-grid {
-  display: flex;
-  flex-direction: column;
-  gap: .75em;
-}
-
-.gallery-item {
-  border-radius: 24px;
-  overflow: clip; 
-  z-index: 2;
-  position: relative;
-  width: 100%;
-  height: 66vh;
-
-  a {
-    display: inline;
-  }
-}
-
-.gallery-text {
-  position: absolute;
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.75);
-  font-size: 1.25em;
-  padding: .1em .8em;
-  margin: revert;
-  z-index: 1;
-}
-
-.gallery-thumbnail {
-  /* Force hardware acceleration */
-  -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: translate3d(0, 0, 0);
-  -ms-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-  border-radius: 24px;
-  object-fit: cover;
-  background-color: $backgroundAccent;
   height: 100%;
-  transition: filter .33s;
+  height: auto;
+  background-color: white;
+  color: var(--text-color);
+  font-family: $font;
+  transition: color .2s ease-in-out;
+  transition: background-color .2s ease-in;
 }
 
 footer {
   width: fit-content;
   margin: 0 auto 1em auto;
   text-align: center;
-}
-
-#scrollTop {
-  text-decoration: underline;
-}
-
-#scrollTop:hover {
-  cursor: pointer;
 }
 
 .collapsible-text {
@@ -315,9 +311,8 @@ footer {
   .no-min-height {min-height: unset;}
   .min-height-640px{ min-height: 640px; }
   .min-height-720px{ min-height: 720px; }
-  .min-height-1024px{ min-height: 1024px; }
+  .min-height-1068px{ min-height: 1068px; }
 
-  /* Site header (contains nav) */
   header {
     flex-direction: row;
   }
@@ -350,59 +345,6 @@ footer {
     height: 75%;
   }
 
-  .gallery-item {
-    margin: 0;
-  }
-
-  /*
-  .gallery-text {
-    backdrop-filter: blur(3px);
-  }*/
-
-  .gallery-thumbnail {
-    scale: 1;
-    transition: scale .3s ease-in-out;
-  }
-
-  .gallery-item:hover > a > img {
-    scale: 1.1;
-  }
-
-  .gallery-grid {
-    text-align: left;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 320px auto;
-    margin-top: 1.5em;
-  
-    /* Manually positioning the grid for the time being */
-    // chat-room app
-    div:nth-child(5) {
-      grid-column: 1 / 2;
-      grid-row: 3 / 5;
-    }
-    // capstone project
-    div:nth-child(7) {
-      grid-column: 1 / 4;
-      grid-row: 1 / 3;
-    }
-    // lighting engine
-    div:nth-child(6) {
-      grid-column: 2 / 4;
-      grid-row: 3 / 5;
-    }
-    // "Pixelator"
-    div:nth-child(2) {
-      grid-column: 1 / 3;
-      grid-row: 5 / 6;
-    }
-    // "Airwaves"
-    div:nth-child(1) {
-      grid-column: 1 / 4;
-      grid-row: 6 / 8;
-    }
-  }
-
   nav {
     flex-direction: row;
 
@@ -418,12 +360,10 @@ footer {
       margin: 0 2px;
       flex-shrink: 0;
       background-color: hsla(240, 38%, 10%, 0);
-      color: rgba(255, 255, 255, 0.5);
       padding: 0.5em 1em;
     
       &:hover {
-        background-color: hsl(240, 38%, 10%);
-        color: white;
+        background-color: rgba(0, 0, 0, .7);
       }
     }
   }
@@ -434,10 +374,6 @@ footer {
 @media screen and (min-width: 576px) {
   .title {
     font-size: 2.5em;
-  }
-
-  .gallery-text {
-    font-size: 1.25em;
   }
 
   nav {

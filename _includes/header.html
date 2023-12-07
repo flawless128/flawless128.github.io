@@ -1,8 +1,12 @@
-<header>
-  <h1 class="title">{{ page.title }}</h1>
   <nav>
+    <div>
     {% for item in site.data.navigation %}
       <a href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>{{ item.name }}</a>
     {% endfor %}
+    </div>
+    <div id="dark-mode-container">
+      <h3 id="toggle-darkmode" class="button">Dark Mode</h3>
+    </div>
   </nav>
+  <br>
 </header>

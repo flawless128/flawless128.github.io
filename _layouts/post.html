@@ -11,14 +11,12 @@
     <script src="{{ "/assets/javascript/script.js" | prepend: site.url }}"></script>
   </head>
   <body>
-    {% include banner.html %}
     <div class="wrapper-page">
       <div class="wrapper-inner-page">
+        {% include header.html %}
         <main>
-          {% include header.html %}
-          {% if page.title != "About Me" %}
+          <h1 class="title">{{ page.title }}</h1>
           <small>Posted {{ page.date | date: "%-m-%d-%Y" }}</small>
-          {% endif %}
           {{ content }}
         </main>
         {% include footer.html %}
